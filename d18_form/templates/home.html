@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>任务3 表单+JSON存储</title>
+</head>
+<body>
+    <!-- 固定区域：永远展示默认用户，提交表单不会修改这里 -->
+    <h1>默认用户信息</h1>
+    <p>姓名：{{ default_name }}</p>
+    <p>分数：{{ default_score }}</p>
+    <p style="color:green">{{ msg }}</p>
+
+    <h2>历史提交记录列表</h2>
+    <ul>
+        {% for item in records %}
+            <li>姓名：{{ item.name }}，分数：{{ item.score }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>新增学生记录表单</h3>
+    <form method="POST">
+        <p>学生姓名：<input type="text" name="user_name"></p>
+        <p>学生分数：<input type="number" name="user_score"></p>
+        <button type="submit">提交保存记录</button>
+    </form>
+</body>
+</html>
